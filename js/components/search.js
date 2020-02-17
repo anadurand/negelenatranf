@@ -52,3 +52,26 @@ const Search = (update) => {
 
   return parent;
 }
+const Fromto = (update) => {
+  const parent = $('<div></div>');
+  const div = $('<div class="container-search"></div>');
+  const search = $('<div class="search"></div>');
+  const input = $('<input type="text" class="input" placeholder="Ingresar producto">');
+  const icon = $('<i class="fa fa-search icono"></i>');
+  const containerStations = $('<div class="container-stations"></div>');
+
+  input.on("keyup", (e) => {
+    if (e.keyCode == 13) {
+      //e.preventDefault();
+      const filterStations = filterByDistrict(state.stations, $(e.currentTarget).val());
+      reRender(containerStations, filterStations, update);
+    }
+
+  });
+  search.append(icon);
+  search.append(input);
+  parent.append(search);
+  parent.append(containerStations);
+
+  return parent;
+}

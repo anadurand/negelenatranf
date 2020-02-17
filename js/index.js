@@ -7,6 +7,8 @@ const render = (root) => {
 
   if(state.selectedStation == null){
     wrapper.append(Search(_ => render(root)));
+    //wrapper.append(Fromto(_ => render(root)));
+    //wrapper.append(Prodlist(_ => render(root)));
     root.append(wrapper);
   }else{
     //wrapper.append(Gmaps(_ => render(root)));
@@ -30,7 +32,7 @@ $( _ => {
 
     state.stations = json;
     const root = $('.root');
-    console.log(state.stations);
+    //console.log(state.stations);
 
     render(root);
   });
